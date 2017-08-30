@@ -118,8 +118,10 @@ public class Bossmove : MonoBehaviour {
 
 
 		float distance = (target.position - transform.position).magnitude;
-		anim.SetBool ("walk",true);
-		if (distance < attackrange) 
+		if (distance > attackrange) {
+			anim.SetBool ("walk", true);
+		}
+		else if (distance < attackrange) 
 		{
 			anim.SetBool ("walk",false);
 			stateTime = attackstatemaxtime;
