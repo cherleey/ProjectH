@@ -27,6 +27,11 @@ public class CameraMove : MonoBehaviour {
 		fX += Input.GetAxis ("Mouse X") * fCameraSpeed;
 		fY += Input.GetAxis ("Mouse Y") * fCameraSpeed;
 
+		if (fY > -10)
+			fY = -10.0f;
+		if (fY < -60.0f)
+			fY = -60.0f;
+
 		vPosition -= Quaternion.Euler (-fY, fX, 0.0f) * Vector3.forward * fDistance;
 
 		transform.position = vPosition;
