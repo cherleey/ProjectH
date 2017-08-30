@@ -11,10 +11,16 @@ public class CameraMove : MonoBehaviour {
 	float fX = 0.0f;
 	float fY = 0.0f;
 	float fCameraSpeed = 2.0f;
+	Vector3 vVelocity = new Vector3(0.5f, 0.5f, 0.5f);
 	SelectedCharater eSelected;
+	bool bMoving = false;
+	Vector3 vOriginCameraPos;
+	Vector3 vOriginLookPos;
+	float fTime = 0.0f;
 
 	// Use this for initialization
 	void Start () {
+		comTarget = GameObject.Find ("2Handed Warrior").transform;
 		fY = -45;
 		eSelected = SelectedCharater.WARRIOR;
 	}
@@ -27,8 +33,11 @@ public class CameraMove : MonoBehaviour {
 	void LateUpdate()
 	{
 		Vector3 vPosition = comTarget.position;
-		fX += Input.GetAxis ("Mouse X") * fCameraSpeed;
-		fY += Input.GetAxis ("Mouse Y") * fCameraSpeed;
+
+		if (!bMoving) {
+			fX += Input.GetAxis ("Mouse X") * fCameraSpeed;
+			fY += Input.GetAxis ("Mouse Y") * fCameraSpeed;
+		}
 
 		if (fY > -10)
 			fY = -10.0f;
@@ -37,8 +46,18 @@ public class CameraMove : MonoBehaviour {
 
 		vPosition -= Quaternion.Euler (-fY, fX, 0.0f) * Vector3.forward * fDistance;
 
-		transform.position = vPosition;
-		transform.LookAt (comTarget);
+		if (bMoving) {
+			fTime += Time.deltaTime;
+			transform.position = Vector3.SmoothDamp (transform.position, vPosition, ref vVelocity, 0.2f);
+		} else {
+			transform.position = vPosition;
+			transform.LookAt (comTarget);
+		}
+
+		if (fTime >= 0.7f) {
+			fTime = 0.0f;
+			bMoving = false;
+		}
 	}
 
 	void CharacterChange()
@@ -51,21 +70,29 @@ public class CameraMove : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.F3))
 			eSelected = SelectedCharater.ARCHER;
-
-		/*
+		
 		switch (eSelected) {
-		case 0:
-			comTarget = GameObject.Find ("2Handed Warrior").transform;
+		case SelectedCharater.WARRIOR:
+			if (comTarget != GameObject.Find ("2Handed Warrior").transform) {
+				comTarget = GameObject.Find ("2Handed Warrior").transform;
+				bMoving = true;
+			}
 			break;
 
-		case 1:
-			comTarget = GameObject.Find ("Mage Warrior").transform;
+		case SelectedCharater.MAGE:
+			if (comTarget != GameObject.Find ("Mage Warrior").transform) {
+				comTarget = GameObject.Find ("Mage Warrior").transform;
+				bMoving = true;
+			}
 			break;
 
-		case 2:
-			comTarget = GameObject.Find ("Archer Warrior").transform;
+		case SelectedCharater.ARCHER:
+			if (comTarget != GameObject.Find ("Archer Warrior").transform) {
+				comTarget = GameObject.Find ("Archer Warrior").transform;
+				bMoving = true;
+			}
 			break;
 		}
-		*/
+
 	}
 }
