@@ -115,7 +115,10 @@ public class Bossmove : MonoBehaviour {
 
 	void WALK()
 	{
-
+		Vector3 dir = target.position - transform.position;
+		BossRotate (dir);
+		dir.Normalize ();
+		characterControl.SimpleMove (dir * speed);
 
 		float distance = (target.position - transform.position).magnitude;
 		if (distance > attackrange) {
@@ -124,15 +127,11 @@ public class Bossmove : MonoBehaviour {
 		else if (distance < attackrange) 
 		{
 			anim.SetBool ("walk",false);
-			stateTime = attackstatemaxtime;
+			anim.SetBool ("idle", true);
 			state = BOSSSTATE.ATTACK;
 
 		}
-		Vector3 dir = target.position - transform.position;
-		dir.y = 0.0f;
-		dir.Normalize ();
-		characterControl.SimpleMove (dir * speed);
-		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), rot * Time.deltaTime);
+
 
 	}
 	void RUN()
@@ -141,17 +140,26 @@ public class Bossmove : MonoBehaviour {
 	}
 	void ATTACK()
 	{
+		
 		stateTime += Time.deltaTime;
+		Vector3 dir = target.position - transform.position;
+
+
 
 		if (stateTime > attackstatemaxtime) {
-
+			anim.SetBool ("idle", false);
 			anim.SetBool ("attack", true);
 
+			StartCoroutine (COStunPause(2.0f));
+			BossRotate (dir);
 			stateTime = 0.0f;
 
-		} else {
+		} /*else {
 			anim.SetBool ("attack", false);
+			anim.SetBool ("idle", true);
 		}
+*/
+
 		float distance = (target.position - transform.position).magnitude;
 		if (distance > attackrange) {
 			state = BOSSSTATE.WALK;
@@ -170,5 +178,17 @@ public class Bossmove : MonoBehaviour {
 
 		state = BOSSSTATE.IDEL;
 
+	}
+
+	void BossRotate(Vector3 dir)
+	{
+		dir.y = 0.0f;
+		dir.Normalize ();
+		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir), rot * Time.deltaTime);
+
+	}
+	public IEnumerator COStunPause(float pauseTime)
+	{
+		yield return new WaitForSeconds(pauseTime);
 	}
 }

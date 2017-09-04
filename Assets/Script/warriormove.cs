@@ -27,7 +27,6 @@ public class warriormove : MonoBehaviour
 	}
 	void Update()
 	{
-		/*
 		playernumber = GameObject.Find ("Main Camera").GetComponent<SmoothFollow> ();
 		if(playernumber.player==1)
 		{
@@ -90,7 +89,6 @@ public class warriormove : MonoBehaviour
 				animator.SetBool ("Running", false);
 			}
 		}
-		*/
 	}
 
 	public IEnumerator COStunPause(float pauseTime)
