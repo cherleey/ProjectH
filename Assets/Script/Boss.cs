@@ -23,11 +23,11 @@ public class Boss : MonoBehaviour {
 	public Slider slider;
 	public Transform blessposition;
 
-	public int bosssight = 20;
-	public int bossattack =10;
-	public int speed = 20;
-	public int rot =20;
-	public int power = 20;
+	public float bosssight = 20.0f;
+	public float bossattack =10.0f;
+	public float speed = 20.0f;
+	public float rot =20.0f;
+	public float power = 20.0f;
 
 	void Start () 
 	{
@@ -41,11 +41,10 @@ public class Boss : MonoBehaviour {
 
 	void Update () 
 	{
-		if (boss == BOSSSTATE.dead)
-			return;
-
-
 		IDLE ();
+
+		/*
+
 		if(Input.GetKeyDown("1"))
 			boss=BOSSSTATE.dead;
 		if (Input.GetKeyDown ("2")) 
@@ -54,50 +53,57 @@ public class Boss : MonoBehaviour {
 			anim.SetBool ("attack", true);
 			GameObject obj = Instantiate (BlessPrefab);
 			obj.transform.position = blessposition.position;
+			obj.transform.rotation = blessposition.rotation;
 			obj.GetComponent<Rigidbody> ().velocity =blessposition.forward;
 			Destroy (obj, 3f);
 			boss = BOSSSTATE.attack;
 		}
-		
+		*/
 		switch (boss) 
 		{
 		case BOSSSTATE.walk:
-			
-			Vector3 dir = target.position - transform.position;
 
+			Vector3 dir = target.position - transform.position;
 			dir.y = 0.0f;
 			dir.Normalize ();
 			Controller.SimpleMove (dir * speed);
 			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (dir),rot * Time.deltaTime);
+			break;
 
-			break;
 		case BOSSSTATE.run:
-						
 			break;
+
 		case BOSSSTATE.attack:
 			break;
+
 		case BOSSSTATE.dead:
 			anim.Play("axe|dead 2");
 			break;
 		}
 
-	}
 
-	void IDLE ()
+	}
+	void IDLE()
 	{
-		float distance = (target.position - transform.position).magnitude;
-		if (distance < bossattack) 
-		{
-			anim.SetBool ("walk", false);
-			anim.SetBool ("attack", true);
-			boss = BOSSSTATE.attack;
-		}
-		else if (distance < bosssight) 
-		{
-			anim.SetBool ("attack", false);
-			anim.SetBool ("walk", true);
-			boss = BOSSSTATE.walk;
-		}
+		if (boss == BOSSSTATE.dead)
+			return;
 
+		float distance = (target.position - transform.position).magnitude;
+
+		if (distance < bosssight && distance > bossattack) {			
+			if (anim.GetBool ("walk") == false) {
+				anim.SetBool ("attack", false);
+				anim.SetBool ("walk", true);
+				boss = BOSSSTATE.walk;
+			}
+		}
+		else if (distance < bossattack) {			
+			if (anim.GetBool ("attack") == false) {
+				anim.SetBool ("attack", true);
+				anim.SetBool ("walk", false);
+				boss = BOSSSTATE.attack;
+			}
+		}
 	}
+
 }
