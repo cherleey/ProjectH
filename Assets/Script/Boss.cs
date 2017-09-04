@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour {
 
@@ -16,12 +17,18 @@ public class Boss : MonoBehaviour {
 	BOSSSTATE boss = BOSSSTATE.idle;
 	Transform target;
 	CharacterController Controller;
+
+	public GameObject BlessPrefab;
 	public Animator anim;
+	public Slider slider;
+	public Transform blessposition;
 
 	public int bosssight = 20;
 	public int bossattack =10;
 	public int speed = 20;
 	public int rot =20;
+	public int power = 20;
+
 	void Start () 
 	{
 		
@@ -31,12 +38,26 @@ public class Boss : MonoBehaviour {
 		anim.Play ("axe|idle", -1, 0f);
 
 	}
-	
+
 	void Update () 
 	{
+		if (boss == BOSSSTATE.dead)
+			return;
+
+
 		IDLE ();
 		if(Input.GetKeyDown("1"))
 			boss=BOSSSTATE.dead;
+		if (Input.GetKeyDown ("2")) 
+		{
+			anim.SetBool ("walk", false);
+			anim.SetBool ("attack", true);
+			GameObject obj = Instantiate (BlessPrefab);
+			obj.transform.position = blessposition.position;
+			obj.GetComponent<Rigidbody> ().velocity =blessposition.forward;
+			Destroy (obj, 3f);
+			boss = BOSSSTATE.attack;
+		}
 		
 		switch (boss) 
 		{
@@ -67,17 +88,15 @@ public class Boss : MonoBehaviour {
 		float distance = (target.position - transform.position).magnitude;
 		if (distance < bossattack) 
 		{
-			boss = BOSSSTATE.attack;
 			anim.SetBool ("walk", false);
 			anim.SetBool ("attack", true);
-
+			boss = BOSSSTATE.attack;
 		}
 		else if (distance < bosssight) 
 		{
-			boss = BOSSSTATE.walk;
 			anim.SetBool ("attack", false);
 			anim.SetBool ("walk", true);
-
+			boss = BOSSSTATE.walk;
 		}
 
 	}
