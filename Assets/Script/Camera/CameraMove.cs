@@ -6,7 +6,7 @@ public class CameraMove : MonoBehaviour {
 	
 	enum SelectedCharater {WARRIOR, MAGE, ARCHER};
 
-	Transform comTarget;
+	GameObject comTarget;
 	float fDistance = 10.0f;
 	float fX = 0.0f;
 	float fY = 0.0f;
@@ -20,7 +20,7 @@ public class CameraMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		comTarget = GameObject.Find ("2Handed Warrior").transform;
+		comTarget = GameObject.Find ("2Handed Warrior");
 		fY = -45;
 		eSelected = SelectedCharater.WARRIOR;
 	}
@@ -32,7 +32,7 @@ public class CameraMove : MonoBehaviour {
 
 	void LateUpdate()
 	{
-		Vector3 vPosition = comTarget.position;
+		Vector3 vPosition = comTarget.transform.position;
 
 		if (!bMoving) {
 			fX += Input.GetAxis ("Mouse X") * fCameraSpeed;
@@ -51,7 +51,7 @@ public class CameraMove : MonoBehaviour {
 			transform.position = Vector3.SmoothDamp (transform.position, vPosition, ref vVelocity, 0.2f);
 		} else {
 			transform.position = vPosition;
-			transform.LookAt (comTarget);
+			transform.LookAt (comTarget.transform);
 		}
 
 		if (fTime >= 0.7f) {
@@ -91,16 +91,16 @@ public class CameraMove : MonoBehaviour {
 		
 		switch (eSelected) {
 		case SelectedCharater.WARRIOR:
-			if (comTarget != GameObject.Find ("2Handed Warrior").transform) {
-				comTarget = GameObject.Find ("2Handed Warrior").transform;
+			if (comTarget != GameObject.Find ("2Handed Warrior")) {
+				comTarget = GameObject.Find ("2Handed Warrior");
 				bMoving = true;
 				comTarget.GetComponent<WarriorControl> ().SetSelected (true);
 			}
 			break;
 
 		case SelectedCharater.MAGE:
-			if (comTarget != GameObject.Find ("Mage Warrior").transform) {
-				comTarget = GameObject.Find ("Mage Warrior").transform;
+			if (comTarget != GameObject.Find ("Mage Warrior")) {
+				comTarget = GameObject.Find ("Mage Warrior");
 				bMoving = true;
 
 				comTarget.GetComponent<MageControl> ().SetSelected (true);
@@ -108,8 +108,8 @@ public class CameraMove : MonoBehaviour {
 			break;
 
 		case SelectedCharater.ARCHER:
-			if (comTarget != GameObject.Find ("Archer Warrior").transform) {
-				comTarget = GameObject.Find ("Archer Warrior").transform;
+			if (comTarget != GameObject.Find ("Archer Warrior")) {
+				comTarget = GameObject.Find ("Archer Warrior");
 				bMoving = true;
 
 				//comTarget.GetComponent < ArcherControl> ().SetSelected (true);
@@ -117,5 +117,10 @@ public class CameraMove : MonoBehaviour {
 			break;
 		}
 
+	}
+
+	public GameObject GetTarget()
+	{
+		return comTarget;
 	}
 }

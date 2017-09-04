@@ -6,21 +6,26 @@ public class WarriorControl : MonoBehaviour {
 
 	public Animator animator;
 
+	GameObject targetEnemy;
 	Vector3 inputVec;
 	Vector3 targetDirection;
 	float rotationSpeed = 30;
+	float distanceToTarget = 0.0f;
 	bool selected = true;
+	bool encounter = false;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!selected)
+		if (!selected) {
+			AIMove ();
+
 			return;
-		
+		}
+
 		PlayAnim ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
@@ -93,13 +98,53 @@ public class WarriorControl : MonoBehaviour {
 
 	void AIMove()
 	{
-		
+		if(!encounter)
+			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+
+		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
+
+		Vector3 dir = targetEnemy.transform.position - transform.position;
+		dir.y = 0.0f;
+
+		transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * rotationSpeed);
+
+		if (targetEnemy.layer == LayerMask.NameToLayer ("Enemy")) {
+			if (distanceToTarget <= 10.0f) {
+				animator.SetBool ("Moving", false);
+				animator.SetBool ("Running", false);
+				animator.SetTrigger ("Attack1Trigger");
+				StartCoroutine (COStunPause (.6f));
+			} else {
+				animator.SetBool ("Moving", true);
+				animator.SetBool ("Running", true);
+			}
+		} else if (distanceToTarget >= 5.0f) {
+			animator.SetBool ("Moving", true);
+			animator.SetBool ("Running", true);
+		} else {
+			animator.SetBool ("Moving", false);
+			animator.SetBool ("Running", false);
+		}
 	}
 
 	public void SetSelected(bool _selected)
 	{
 		selected = _selected;
+	}
 
-		Debug.Log (selected);
+	void OnTriggerEnter(Collider collision)
+	{
+		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+			targetEnemy = collision.gameObject;
+			encounter = true;
+		}
+	}
+
+	void OnTiggerExit(Collider collision)
+	{
+		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+			encounter = false;
+		}
 	}
 }
