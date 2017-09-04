@@ -2,122 +2,125 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameramove : MonoBehaviour {
+public class CameraMove : MonoBehaviour {
+	
+	enum SelectedCharater {WARRIOR, MAGE, ARCHER};
 
-	#region Consts
-	private const float SMOOTH_TIME = 0.3f;
-	#endregion
+	GameObject comTarget;
+	float fDistance = 10.0f;
+	float fX = 0.0f;
+	float fY = 0.0f;
+	float fCameraSpeed = 2.0f;
+	Vector3 vVelocity = new Vector3(0.5f, 0.5f, 0.5f);
+	SelectedCharater eSelected;
+	bool bMoving = false;
+	Vector3 vOriginCameraPos;
+	Vector3 vOriginLookPos;
+	float fTime = 0.0f;
 
-	#region Public Properties
-	public bool LockX;
-	float offSetZ;
-	public bool LockY;
-	public bool LockZ;
-	public bool useSmoothing;
-	public int player;
-	Transform target;
-
-	public GameObject hudElements;
-	#endregion
-
-	#region Private Properties
-	private Transform thisTransform;
-	private Vector3 velocity;
-	#endregion
-
-	bool hudActive = true;
-
-	private void Awake()
-	{
-		thisTransform = transform;
-		velocity = new Vector3(0.5f, 0.5f, 0.5f);
-		target = GameObject.Find ("2Handed Warrior").transform;
-
-		player = 1;
+	// Use this for initialization
+	void Start () {
+		comTarget = GameObject.Find ("2Handed Warrior");
+		fY = -45;
+		eSelected = SelectedCharater.WARRIOR;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		CharacterChange ();
 	}
 
-	void Update()
+	void LateUpdate()
 	{
-		if(hudActive)
-		{
-			if (Input.GetKeyDown(KeyCode.H))
-			{
-				hudElements.SetActive (false);
-				hudActive = false;
-			}
+		Vector3 vPosition = comTarget.transform.position;
 
+		if (!bMoving) {
+			fX += Input.GetAxis ("Mouse X") * fCameraSpeed;
+			fY += Input.GetAxis ("Mouse Y") * fCameraSpeed;
 		}
-		else
-		{
-			if (Input.GetKeyDown(KeyCode.H))
-			{
-				hudElements.SetActive (true);
-				hudActive = true;
-			}
+
+		if (fY > -10)
+			fY = -10.0f;
+		if (fY < -60.0f)
+			fY = -60.0f;
+
+		vPosition -= Quaternion.Euler (-fY, fX, 0.0f) * Vector3.forward * fDistance;
+
+		if (bMoving) {
+			fTime += Time.deltaTime;
+			transform.position = Vector3.SmoothDamp (transform.position, vPosition, ref vVelocity, 0.2f);
+		} else {
+			transform.position = vPosition;
+			transform.LookAt (comTarget.transform);
 		}
-		if (Input.GetKeyDown (KeyCode.F1)) 
-		{
-			target = GameObject.Find ("2Handed Warrior").transform;
 
-			player = 1;
-			Debug.Log ("1");
-		} 
-		else if (Input.GetKeyDown (KeyCode.F2)) 
-		{
-			Debug.Log ("2");
-			target = GameObject.Find ("Mage Warrior").transform;
-
-			player = 2;
-		}
-		else if (Input.GetKeyDown (KeyCode.F3)) 
-		{
-			Debug.Log ("3");
-			target = GameObject.Find ("Archer Warrior").transform;
-
-			player = 3;
+		if (fTime >= 0.7f) {
+			fTime = 0.0f;
+			bMoving = false;
 		}
 	}
 
-	// ReSharper disable UnusedMember.Local
-	private void LateUpdate()
-	// ReSharper restore UnusedMember.Local
+	void CharacterChange()
 	{
-		var newPos = Vector3.zero;
+		if (Input.GetKeyDown (KeyCode.F1)) {
+			if(eSelected == SelectedCharater.MAGE)
+				comTarget.GetComponent<MageControl> ().SetSelected (false);
+			//else if(eSelected == SelectedCharater.ARCHER)
+			//	comTarget.GetComponent<ArcherControl> ().SetSelected (false);
 
-
-			offSetZ = -6;
-		if (useSmoothing)
-		{
-			newPos.x = Mathf.SmoothDamp(thisTransform.position.x, target.position.x, ref velocity.x, SMOOTH_TIME);
-			newPos.y = Mathf.SmoothDamp(thisTransform.position.y, target.position.y+4, ref velocity.y, SMOOTH_TIME);
-			newPos.z = Mathf.SmoothDamp(thisTransform.position.z, target.position.z + offSetZ, ref velocity.z, SMOOTH_TIME);
+			eSelected = SelectedCharater.WARRIOR;
 		}
-		else
-		{
-			newPos.x = target.position.x;
-			newPos.y = target.position.y;
-			newPos.z = target.position.z;
+
+		if (Input.GetKeyDown (KeyCode.F2)) {
+			if(eSelected == SelectedCharater.WARRIOR)
+				comTarget.GetComponent<WarriorControl> ().SetSelected (false);
+			//else if(eSelected == SelectedCharater.ARCHER)
+			//	comTarget.GetComponent<ArcherControl> ().SetSelected (false);
+
+			eSelected = SelectedCharater.MAGE;
+		}
+
+		if (Input.GetKeyDown (KeyCode.F3)) {
+			if(eSelected == SelectedCharater.WARRIOR)
+				comTarget.GetComponent<WarriorControl> ().SetSelected (false);
+			else if(eSelected == SelectedCharater.MAGE)
+				comTarget.GetComponent<MageControl> ().SetSelected (false);
+			
+			eSelected = SelectedCharater.ARCHER;
 		}
 		
-		#region Locks
-		if (LockX)
-		{
-			newPos.x = thisTransform.position.x;
-		}
-		
-		if (LockY)
-		{
-			newPos.y = thisTransform.position.y;
-		}
-		
-		if (LockZ)
-		{
-			newPos.z = thisTransform.position.z;
-		}
-		#endregion
+		switch (eSelected) {
+		case SelectedCharater.WARRIOR:
+			if (comTarget != GameObject.Find ("2Handed Warrior")) {
+				comTarget = GameObject.Find ("2Handed Warrior");
+				bMoving = true;
+				comTarget.GetComponent<WarriorControl> ().SetSelected (true);
+			}
+			break;
 
-		transform.position = Vector3.Slerp(transform.position, newPos, Time.time);
+		case SelectedCharater.MAGE:
+			if (comTarget != GameObject.Find ("Mage Warrior")) {
+				comTarget = GameObject.Find ("Mage Warrior");
+				bMoving = true;
 
+				comTarget.GetComponent<MageControl> ().SetSelected (true);
+			}
+			break;
 
+		case SelectedCharater.ARCHER:
+			if (comTarget != GameObject.Find ("Archer Warrior")) {
+				comTarget = GameObject.Find ("Archer Warrior");
+				bMoving = true;
+
+				//comTarget.GetComponent < ArcherControl> ().SetSelected (true);
+			}
+			break;
+		}
+
+	}
+
+	public GameObject GetTarget()
+	{
+		return comTarget;
 	}
 }

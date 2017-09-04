@@ -5,6 +5,7 @@ using UnityEngine;
 public class MageControl : MonoBehaviour {
 
 	public Animator animator;
+	public GameObject simpleAtt;
 
 	GameObject targetEnemy;
 	Vector3 inputVec;
@@ -62,6 +63,7 @@ public class MageControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
+			FireSimpleAttack ();
 			StartCoroutine (COStunPause(.6f));
 		}
 	}
@@ -113,6 +115,7 @@ public class MageControl : MonoBehaviour {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
 				animator.SetTrigger ("Attack1Trigger");
+				FireSimpleAttack ();
 				StartCoroutine (COStunPause (.6f));
 			} else {
 				animator.SetBool ("Moving", true);
@@ -146,5 +149,17 @@ public class MageControl : MonoBehaviour {
 			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 			encounter = false;
 		}
+	}
+
+	void FireSimpleAttack()
+	{
+		Vector3 initPosition = transform.position;
+		initPosition.y = 2.0f;
+
+		simpleAtt.transform.position = initPosition;
+		simpleAtt.transform.rotation = transform.rotation;
+		simpleAtt.transform.forward = transform.forward;
+
+		Instantiate (simpleAtt);
 	}
 }
