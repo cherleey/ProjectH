@@ -837,8 +837,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4531576241104256}
   - component: {fileID: 95042076886517168}
-  - component: {fileID: 114377223913904288}
-  - component: {fileID: 143671977796124764}
+  - component: {fileID: 143111222894206090}
+  - component: {fileID: 114255933012776482}
   m_Layer: 0
   m_Name: dragon
   m_TagString: Untagged
@@ -3712,7 +3712,7 @@ Animator:
   m_GameObject: {fileID: 1377613895816600}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d265bb418a3d9574aaa5e7500d619208, type: 3}
-  m_Controller: {fileID: 9100000, guid: b4fb809028e6c4647ab5008599766171, type: 2}
+  m_Controller: {fileID: 9100000, guid: b40fb62ce4f778343ba2e56d11b0338f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3720,7 +3720,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114377223913904288
+--- !u!114 &114255933012776482
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3728,18 +3728,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377613895816600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edd52eb4148cb5b43ba4bc70921248bc, type: 3}
+  m_Script: {fileID: 11500000, guid: d77b23a5543cb864b9ee6699bd490767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleStateMaxTime: 2
+  anim: {fileID: 95042076886517168}
+  bosssight: 20
+  bossattack: 5
   speed: 3
   rot: 20
-  attackrange: 10
-  sightrange: 50
-  attackstatemaxtime: 3
-  attackpoint: 15
-  attackpoint2: 30
-  anim: {fileID: 95042076886517168}
 --- !u!137 &137245751041715580
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -4273,7 +4269,7 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.010002907, y: -0.008471444, z: 0.01758934}
     m_Extent: {x: 0.049819436, y: 0.04565145, z: 0.060249045}
   m_DirtyAABB: 0
---- !u!143 &143671977796124764
+--- !u!143 &143111222894206090
 CharacterController:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -4283,8 +4279,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 5
+  m_Height: 2
+  m_Radius: 4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

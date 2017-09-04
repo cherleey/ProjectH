@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefab/Materials.meta~홍철의.meta
 guid: 54c98d029e3a6b747b6f2589d9bf9857
 timeCreated: 1504075622
+=======
+guid: 97a2e5e2209bbe04fbb692cb1c54d95b
+timeCreated: 1504076234
+>>>>>>> master:Assets/Prefab/Materials.meta~홍철의.meta
 licenseType: Pro
 DefaultImporter:
   userData: 
