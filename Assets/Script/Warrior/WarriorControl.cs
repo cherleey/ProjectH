@@ -99,5 +99,7 @@ public class WarriorControl : MonoBehaviour {
 	public void SetSelected(bool _selected)
 	{
 		selected = _selected;
+
+		Debug.Log (selected);
 	}
 }

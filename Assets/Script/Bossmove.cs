@@ -87,7 +87,7 @@ public class Bossmove : MonoBehaviour {
 	{
 		if (state==BOSSSTATE.DEAD)
 			return;
-		Debug.Log ("Hit");
+		
 		/*
 		if (col.gameObject.tag == "Eye") 
 		{

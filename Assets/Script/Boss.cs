@@ -37,7 +37,7 @@ public class Boss : MonoBehaviour {
 		IDLE ();
 		if(Input.GetKeyDown("1"))
 			boss=BOSSSTATE.dead;
-		Debug.Log ("state = " + boss);
+		
 		switch (boss) 
 		{
 		case BOSSSTATE.walk:
