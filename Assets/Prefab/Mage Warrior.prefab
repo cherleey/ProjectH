@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 95721041353083760}
   - component: {fileID: 54648515782693042}
   - component: {fileID: 143895785636571718}
-  - component: {fileID: 114646177824486726}
+  - component: {fileID: 114310178778752698}
   m_Layer: 0
   m_Name: Mage Warrior
   m_TagString: Player
@@ -1650,7 +1650,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114646177824486726
+--- !u!114 &114310178778752698
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1658,10 +1658,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778212647438454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323b101877a21284cb3f4f1a1a86748f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dcb5c099825dc84893ffcd526eed81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95721041353083760}
+  warrior: 5
 --- !u!137 &137478417964587152
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
