@@ -9,6 +9,8 @@ public class MageControl : MonoBehaviour {
 	Vector3 inputVec;
 	Vector3 targetDirection;
 	float rotationSpeed = 30;
+	float distanceToEnemy = 0.0f;
+	bool selected = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,9 @@ public class MageControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (!selected)
+			return;
+
 		PlayAnim ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
@@ -85,5 +90,15 @@ public class MageControl : MonoBehaviour {
 		{
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * rotationSpeed);
 		}
+	}
+
+	void AIMove()
+	{
+
+	}
+
+	public void SetSelected(bool _selected)
+	{
+		selected = _selected;
 	}
 }

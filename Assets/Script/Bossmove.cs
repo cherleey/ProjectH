@@ -56,7 +56,7 @@ public class Bossmove : MonoBehaviour {
 
 	void Update () 
 	{
-		Debug.Log ("Now State : " + state);
+		//Debug.Log ("Now State : " + state);
 
 		switch (state) {
 		case BOSSSTATE.IDEL:

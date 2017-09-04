@@ -62,20 +62,39 @@ public class CameraMove : MonoBehaviour {
 
 	void CharacterChange()
 	{
-		if (Input.GetKeyDown (KeyCode.F1))
+		if (Input.GetKeyDown (KeyCode.F1)) {
+			if(eSelected == SelectedCharater.MAGE)
+				comTarget.GetComponent<MageControl> ().SetSelected (false);
+			//else if(eSelected == SelectedCharater.ARCHER)
+			//	comTarget.GetComponent<ArcherControl> ().SetSelected (false);
+
 			eSelected = SelectedCharater.WARRIOR;
+		}
 
-		if (Input.GetKeyDown (KeyCode.F2))
+		if (Input.GetKeyDown (KeyCode.F2)) {
+			if(eSelected == SelectedCharater.WARRIOR)
+				comTarget.GetComponent<WarriorControl> ().SetSelected (false);
+			//else if(eSelected == SelectedCharater.ARCHER)
+			//	comTarget.GetComponent<ArcherControl> ().SetSelected (false);
+
 			eSelected = SelectedCharater.MAGE;
+		}
 
-		if (Input.GetKeyDown (KeyCode.F3))
+		if (Input.GetKeyDown (KeyCode.F3)) {
+			if(eSelected == SelectedCharater.WARRIOR)
+				comTarget.GetComponent<WarriorControl> ().SetSelected (false);
+			else if(eSelected == SelectedCharater.MAGE)
+				comTarget.GetComponent<MageControl> ().SetSelected (false);
+			
 			eSelected = SelectedCharater.ARCHER;
+		}
 		
 		switch (eSelected) {
 		case SelectedCharater.WARRIOR:
 			if (comTarget != GameObject.Find ("2Handed Warrior").transform) {
 				comTarget = GameObject.Find ("2Handed Warrior").transform;
 				bMoving = true;
+				comTarget.GetComponent<WarriorControl> ().SetSelected (true);
 			}
 			break;
 
@@ -83,6 +102,8 @@ public class CameraMove : MonoBehaviour {
 			if (comTarget != GameObject.Find ("Mage Warrior").transform) {
 				comTarget = GameObject.Find ("Mage Warrior").transform;
 				bMoving = true;
+
+				comTarget.GetComponent<MageControl> ().SetSelected (true);
 			}
 			break;
 
@@ -90,6 +111,8 @@ public class CameraMove : MonoBehaviour {
 			if (comTarget != GameObject.Find ("Archer Warrior").transform) {
 				comTarget = GameObject.Find ("Archer Warrior").transform;
 				bMoving = true;
+
+				//comTarget.GetComponent < ArcherControl> ().SetSelected (true);
 			}
 			break;
 		}

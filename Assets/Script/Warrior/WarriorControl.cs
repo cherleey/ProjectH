@@ -9,6 +9,7 @@ public class WarriorControl : MonoBehaviour {
 	Vector3 inputVec;
 	Vector3 targetDirection;
 	float rotationSpeed = 30;
+	bool selected = true;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,9 @@ public class WarriorControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!selected)
+			return;
+		
 		PlayAnim ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
@@ -85,5 +89,15 @@ public class WarriorControl : MonoBehaviour {
 		{
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * rotationSpeed);
 		}
+	}
+
+	void AIMove()
+	{
+		
+	}
+
+	public void SetSelected(bool _selected)
+	{
+		selected = _selected;
 	}
 }
