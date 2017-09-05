@@ -845,6 +845,83 @@ RectTransform:
   m_AnchoredPosition: {x: -0.05, y: 0}
   m_SizeDelta: {x: -10.11, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+=======
+--- !u!1 &545510329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1732804042747822, guid: 9ed2b8806ce9e61428b9c985b0c3edbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 545510330}
+  m_Layer: 0
+  m_Name: B_L_Finger2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &545510330
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4607773152239464, guid: 9ed2b8806ce9e61428b9c985b0c3edbe,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545510329}
+  m_LocalRotation: {x: -0.00039815757, y: 0.00000020484495, z: 0.000000115565555,
+    w: 0.99999994}
+  m_LocalPosition: {x: -0.17157653, y: -0.03496109, z: -0.019497441}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 0.99999994}
+  m_Children:
+  - {fileID: 983544331}
+  m_Father: {fileID: 125738221}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &582384137
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.3130164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.5921136
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.7355061
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.6775182
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770499443146286, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 291c564606045e042a0035805d8e58f8, type: 2}
+  m_IsPrefabParent: 0
+>>>>>>> 홍철의
 --- !u!1 &647950703
 GameObject:
   m_ObjectHideFlags: 0
