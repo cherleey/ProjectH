@@ -839,6 +839,7 @@ GameObject:
   - component: {fileID: 95042076886517168}
   - component: {fileID: 143111222894206090}
   - component: {fileID: 114412312661363820}
+  - component: {fileID: 135030230822434246}
   m_Layer: 10
   m_Name: dragon
   m_TagString: Untagged
@@ -2105,7 +2106,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!4 &4097483808344580
 Transform:
@@ -2165,7 +2166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4158392763381574
 Transform:
@@ -2332,7 +2333,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4251515723059042
 Transform:
@@ -2364,7 +2365,7 @@ Transform:
   - {fileID: 4832704982496116}
   - {fileID: 4430597456569696}
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4271098479843390
 Transform:
@@ -2403,7 +2404,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4275522930250552
 Transform:
@@ -2542,7 +2543,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4315803067103948
 Transform:
@@ -2900,13 +2901,13 @@ Transform:
   m_LocalPosition: {x: 14.98, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
+  - {fileID: 4133125447643230}
   - {fileID: 4260441799177680}
   - {fileID: 4274484797892014}
   - {fileID: 4888097526148044}
   - {fileID: 4250706178107636}
   - {fileID: 4315699825450998}
   - {fileID: 4096968964590322}
-  - {fileID: 4133125447643230}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3505,7 +3506,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4890001519939532
 Transform:
@@ -3790,16 +3791,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlessPrefab: {fileID: 163286, guid: 50daa816369323b42b56093bb108296f, type: 2}
-  auraPrefab: {fileID: 168262, guid: 062893e7007e39441aea009115b6cefa, type: 2}
-  meteorPrefab: {fileID: 0}
+  auraPrefab: {fileID: 1985664757686340, guid: 7caf9db2bccbfc44881c33a11a574b06, type: 2}
+  meteorPrefab: {fileID: 1542196908215044, guid: dffaebe7bf4b03542a17e83053cc2398,
+    type: 2}
   anim: {fileID: 95042076886517168}
   blessposition: {fileID: 4096968964590322}
   bosshealth: {fileID: 0}
   bosssight: 20
   bossattack: 10
-  speed: 20
+  speed: 5
   rot: 20
   power: 20
+--- !u!135 &135030230822434246
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377613895816600}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137245751041715580
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
