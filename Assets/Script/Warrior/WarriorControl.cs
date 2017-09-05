@@ -115,6 +115,7 @@ public class WarriorControl : MonoBehaviour {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
 				animator.SetTrigger ("Attack1Trigger");
+				isAttacking = true;
 				StartCoroutine (COStunPause (.6f));
 			} else {
 				animator.SetBool ("Moving", true);

@@ -345,6 +345,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &224620495 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1065352204716966, guid: 42e0b50553809a34aad1a570366e1772,
+    type: 2}
+  m_PrefabInternal: {fileID: 331542862}
 --- !u!1 &233614179
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +576,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114139200965262146, guid: 42e0b50553809a34aad1a570366e1772,
+        type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 2001140292}
+    - target: {fileID: 114139200965262146, guid: 42e0b50553809a34aad1a570366e1772,
+        type: 2}
+      propertyPath: warrior
+      value: 
+      objectReference: {fileID: 224620495}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42e0b50553809a34aad1a570366e1772, type: 2}
   m_IsPrefabParent: 0
@@ -2949,6 +2964,16 @@ Prefab:
     - target: {fileID: 4531576241104256, guid: c475d7012b543624cb8a2fbc73d14b87, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114281070638613934, guid: c475d7012b543624cb8a2fbc73d14b87,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114255933012776482, guid: c475d7012b543624cb8a2fbc73d14b87,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c475d7012b543624cb8a2fbc73d14b87, type: 2}

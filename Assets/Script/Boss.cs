@@ -29,6 +29,8 @@ public class Boss : MonoBehaviour {
 	public int rot =20;
 	public int power = 20;
 
+	int hp = 100;
+
 	void Start () 
 	{
 		
@@ -99,5 +101,11 @@ public class Boss : MonoBehaviour {
 			boss = BOSSSTATE.walk;
 		}
 
+	}
+
+	public void Hit(int damage)
+	{
+		hp -= damage;
+		Debug.Log (hp);
 	}
 }
