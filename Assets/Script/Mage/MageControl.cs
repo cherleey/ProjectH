@@ -101,8 +101,8 @@ public class MageControl : MonoBehaviour {
 
 	void AIMove()
 	{
-		if (!encounter)
-			targetEnemy = Camera.main.GetComponent<CameraMove> ().GetTarget ();
+		if(!encounter)
+			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 		
 		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
 
@@ -144,7 +144,6 @@ public class MageControl : MonoBehaviour {
 		}
 	}
 
-	/*
 	void OnTiggerExit(Collider collision)
 	{
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
@@ -152,7 +151,6 @@ public class MageControl : MonoBehaviour {
 			encounter = false;
 		}
 	}
-	*/
 
 	void FireSimpleAttack()
 	{

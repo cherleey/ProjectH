@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SimpleAttack : MonoBehaviour {
 
+	public GameObject mage;
+
 	float speed = 10.0f;
 	int damage = 5;
 
@@ -15,8 +17,6 @@ public class SimpleAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (Vector3.forward * Time.deltaTime * -speed);
-
-		Destroy (gameObject, 3.0f);
 	}
 
 	void OnTriggerExit(Collider collision)
