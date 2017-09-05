@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MageControl : MonoBehaviour {
+public class ArcherControl : MonoBehaviour {
 
 	public Animator animator;
 	public GameObject simpleAtt;
@@ -101,9 +101,9 @@ public class MageControl : MonoBehaviour {
 
 	void AIMove()
 	{
-		if (!encounter)
-			targetEnemy = Camera.main.GetComponent<CameraMove> ().GetTarget ();
-		
+		if(!encounter)
+			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+
 		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
 
 		Vector3 dir = targetEnemy.transform.position - transform.position;
@@ -144,7 +144,6 @@ public class MageControl : MonoBehaviour {
 		}
 	}
 
-	/*
 	void OnTiggerExit(Collider collision)
 	{
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
@@ -152,7 +151,6 @@ public class MageControl : MonoBehaviour {
 			encounter = false;
 		}
 	}
-	*/
 
 	void FireSimpleAttack()
 	{
@@ -165,7 +163,7 @@ public class MageControl : MonoBehaviour {
 			simpleAtt.transform.forward = -new Vector3(Camera.main.transform.forward.x, 0.0f, Camera.main.transform.forward.z);
 		else
 			simpleAtt.transform.forward = -transform.forward;
-		
+
 
 		Instantiate (simpleAtt);
 	}
@@ -175,7 +173,7 @@ public class MageControl : MonoBehaviour {
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Attack1")) {
 			if(selected)
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(new Vector3(Camera.main.transform.forward.x, 0.0f, Camera.main.transform.forward.z)), Time.deltaTime * rotationSpeed);
-			if (animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.4125f)
+			if (animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.416f)
 				FireSimpleAttack ();
 		}
 	}
