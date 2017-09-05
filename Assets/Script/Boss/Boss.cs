@@ -15,8 +15,7 @@ public class Boss : MonoBehaviour {
 	}
 
 	BOSSSTATE boss = BOSSSTATE.idle;
-	Transform warriortarget;
-	Transform magetarget;
+	Transform target;
 	CharacterController Controller;
 
 	public GameObject BlessPrefab;
@@ -35,17 +34,12 @@ public class Boss : MonoBehaviour {
 
 	int hp = 100;
 
-	void OnTriggerEnter(Collider collision)
-	{
-	}
-
 	void Start () 
 	{
 		
 		anim = GetComponent<Animator> ();
 		Controller = GetComponent<CharacterController> ();
-		warriortarget = GameObject.Find ("2Handed Warrior").transform;
-		magetarget = GameObject.Find ("Mage Warrior").transform;
+		target = GameObject.Find ("2Handed Warrior").transform;
 		anim.Play ("axe|idle", -1, 0f);
 
 		aura = Instantiate (auraPrefab);
@@ -94,7 +88,7 @@ public class Boss : MonoBehaviour {
 		{
 		case BOSSSTATE.walk:
 
-			Vector3 dir = warriortarget.position - transform.position;
+			Vector3 dir = target.position - transform.position;
 			dir.y = 0.0f;
 			dir.Normalize ();
 			Controller.SimpleMove (dir * speed);
@@ -120,13 +114,9 @@ public class Boss : MonoBehaviour {
 	{
 		if (boss == BOSSSTATE.dead)
 			return;
-		float distance=0;
-		float warriordistance =(warriortarget.position - transform.position).magnitude;
-		float magedistance = (magetarget.position - transform.position).magnitude;
-		if (warriordistance < magedistance)
-			distance = warriordistance;
-		else
-			distance = magedistance;
+
+		float distance = (target.position - transform.position).magnitude;
+
 		if (distance < bosssight && distance > bossattack) {			
 			if (anim.GetBool ("walk") == false) {
 				anim.SetBool ("attack", false);
