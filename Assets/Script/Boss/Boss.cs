@@ -19,10 +19,12 @@ public class Boss : MonoBehaviour {
 	CharacterController Controller;
 
 	public GameObject BlessPrefab;
+	public GameObject auraPrefab;
+	public GameObject meteorPrefab;
 	public Animator anim;
-	public Slider slider;
 	public Transform blessposition;
 	public Slider bosshealth;
+	GameObject aura;
 
 	public float bosssight = 20.0f;
 	public float bossattack =10.0f;
@@ -40,29 +42,48 @@ public class Boss : MonoBehaviour {
 		target = GameObject.Find ("2Handed Warrior").transform;
 		anim.Play ("axe|idle", -1, 0f);
 
+		aura = Instantiate (auraPrefab);
+		aura.SetActive (false);
+
+
+
 	}
 
-	void Update () 
+	void Update ()
 	{
-		bosshealth.value = Mathf.MoveTowards (bosshealth.value, hp, 1.0f);
+		
 		IDLE ();
+		bosshealth.value = Mathf.MoveTowards (bosshealth.value, hp, 1.0f);
 
 
-
-		if(Input.GetKeyDown("1"))
-			boss=BOSSSTATE.dead;
-		if (Input.GetKeyDown ("2")) 
-		{
+		
+		if (Input.GetKeyDown ("1"))
+			boss = BOSSSTATE.dead;
+		if (Input.GetKeyDown ("2")) {
 			anim.SetBool ("walk", false);
 			anim.SetBool ("attack", true);
 			GameObject obj = Instantiate (BlessPrefab);
 			obj.transform.position = blessposition.position;
 			obj.transform.rotation = blessposition.rotation;
-			obj.GetComponent<Rigidbody> ().velocity =blessposition.forward;
+			obj.GetComponent<Rigidbody> ().velocity = blessposition.forward;
 			Destroy (obj, 3f);
 			boss = BOSSSTATE.attack;
 		}
+		if (Input.GetKeyDown ("3")) {
+			if (aura.activeSelf)
+				aura.SetActive (false);
+			else
+				aura.SetActive (true);
 
+		}
+		if(Input.GetKeyDown("4"))
+			{
+				GameObject meteor = Instantiate(meteorPrefab);
+				meteor.transform.position = transform.position;
+				Destroy(meteor, 7.0f);
+			}
+
+	
 		switch (boss) 
 		{
 		case BOSSSTATE.walk:
@@ -78,13 +99,15 @@ public class Boss : MonoBehaviour {
 			break;
 
 		case BOSSSTATE.attack:
+			
 			break;
 
 		case BOSSSTATE.dead:
 			anim.Play("axe|dead 2");
 			break;
 		}
-
+		if (boss == BOSSSTATE.dead)
+			return;
 
 	}
 	void IDLE()
@@ -109,12 +132,15 @@ public class Boss : MonoBehaviour {
 			}
 		}
 	}
-	float hp = 100.0f;
 
 	public void Hit(int damage)
 	{
 		hp -= damage;
-
+		if (hp <= 0)
+		{
+			hp = 0;
+			boss = BOSSSTATE.dead;
+		}
 		Debug.Log (hp);
 
 	}

@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 4531576241104256}
   - component: {fileID: 95042076886517168}
   - component: {fileID: 143111222894206090}
-  - component: {fileID: 114255933012776482}
+  - component: {fileID: 114412312661363820}
   m_Layer: 10
   m_Name: dragon
   m_TagString: Untagged
@@ -916,6 +916,21 @@ GameObject:
   - component: {fileID: 4926773055340102}
   m_Layer: 10
   m_Name: back_control_end
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1408008287083650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4133125447643230}
+  m_Layer: 10
+  m_Name: auraposition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2139,6 +2154,19 @@ Transform:
   m_Father: {fileID: 4812256662501152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4133125447643230
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408008287083650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4531576241104256}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4158392763381574
 Transform:
   m_ObjectHideFlags: 1
@@ -2878,6 +2906,7 @@ Transform:
   - {fileID: 4250706178107636}
   - {fileID: 4315699825450998}
   - {fileID: 4096968964590322}
+  - {fileID: 4133125447643230}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3749,7 +3778,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114255933012776482
+--- !u!114 &114412312661363820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3761,12 +3790,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlessPrefab: {fileID: 163286, guid: 50daa816369323b42b56093bb108296f, type: 2}
+  auraPrefab: {fileID: 168262, guid: 062893e7007e39441aea009115b6cefa, type: 2}
+  meteorPrefab: {fileID: 0}
   anim: {fileID: 95042076886517168}
-  slider: {fileID: 0}
   blessposition: {fileID: 4096968964590322}
+  bosshealth: {fileID: 0}
   bosssight: 20
-  bossattack: 5
-  speed: 3
+  bossattack: 10
+  speed: 20
   rot: 20
   power: 20
 --- !u!137 &137245751041715580
@@ -4314,7 +4345,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
