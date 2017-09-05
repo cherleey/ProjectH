@@ -19,7 +19,7 @@ public class HitByWarrior : MonoBehaviour {
 	void OnTriggerExit(Collider collision)
 	{
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy") && Camera.main.GetComponent<CameraMove> ().GetTarget ().GetComponent<WarriorControl> ().IsAttacking ()) {
-			collision.gameObject.GetComponent<TempBoss> ().Hit (damage);
+			collision.gameObject.GetComponent<Boss> ().Hit (damage);
 			Camera.main.GetComponent<CameraMove> ().GetTarget ().GetComponent<WarriorControl> ().SetAttacking (false);
 		}
 	}

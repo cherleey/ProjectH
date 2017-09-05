@@ -22,6 +22,7 @@ public class Boss : MonoBehaviour {
 	public Animator anim;
 	public Slider slider;
 	public Transform blessposition;
+	public Slider bosshealth;
 
 	public float bosssight = 20.0f;
 	public float bossattack =10.0f;
@@ -41,9 +42,10 @@ public class Boss : MonoBehaviour {
 
 	void Update () 
 	{
+		bosshealth.value = Mathf.MoveTowards (bosshealth.value, hp, 1.0f);
 		IDLE ();
 
-		/*
+
 
 		if(Input.GetKeyDown("1"))
 			boss=BOSSSTATE.dead;
@@ -58,7 +60,7 @@ public class Boss : MonoBehaviour {
 			Destroy (obj, 3f);
 			boss = BOSSSTATE.attack;
 		}
-		*/
+
 		switch (boss) 
 		{
 		case BOSSSTATE.walk:
@@ -105,5 +107,13 @@ public class Boss : MonoBehaviour {
 			}
 		}
 	}
+	float hp = 100.0f;
 
+	public void Hit(int damage)
+	{
+		hp -= damage;
+
+		Debug.Log (hp);
+
+	}
 }
