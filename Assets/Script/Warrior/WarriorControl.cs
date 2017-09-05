@@ -13,6 +13,7 @@ public class WarriorControl : MonoBehaviour {
 	float distanceToTarget = 0.0f;
 	bool selected = true;
 	bool encounter = false;
+	bool isAttacking = false;
 
 	// Use this for initialization
 	void Start () {
@@ -62,6 +63,7 @@ public class WarriorControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
+			isAttacking = true;
 			StartCoroutine (COStunPause(.6f));
 		}
 	}
@@ -146,5 +148,15 @@ public class WarriorControl : MonoBehaviour {
 			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 			encounter = false;
 		}
+	}
+
+	public bool IsAttacking()
+	{
+		return isAttacking;
+	}
+
+	public void SetAttacking(bool _isAttacking)
+	{
+		isAttacking = _isAttacking;
 	}
 }
