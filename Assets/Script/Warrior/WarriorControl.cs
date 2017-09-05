@@ -13,7 +13,6 @@ public class WarriorControl : MonoBehaviour {
 	float distanceToTarget = 0.0f;
 	bool selected = true;
 	bool encounter = false;
-	bool isAttacking = false;
 
 	// Use this for initialization
 	void Start () {
@@ -64,7 +63,10 @@ public class WarriorControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
+<<<<<<< HEAD
 			//isAttacking = true;
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
 			StartCoroutine (COStunPause(.6f));
 		}
 	}
@@ -151,6 +153,7 @@ public class WarriorControl : MonoBehaviour {
 			encounter = false;
 		}
 	}
+<<<<<<< HEAD
 
 	public bool IsAttacking()
 	{
@@ -169,4 +172,6 @@ public class WarriorControl : MonoBehaviour {
 				isAttacking = true;
 		}
 	}
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
 }

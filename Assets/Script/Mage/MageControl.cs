@@ -5,7 +5,6 @@ using UnityEngine;
 public class MageControl : MonoBehaviour {
 
 	public Animator animator;
-	public GameObject simpleAtt;
 
 	GameObject targetEnemy;
 	Vector3 inputVec;
@@ -64,7 +63,10 @@ public class MageControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
+<<<<<<< HEAD
 			//FireSimpleAttack ();
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
 			StartCoroutine (COStunPause(.6f));
 		}
 	}
@@ -116,7 +118,10 @@ public class MageControl : MonoBehaviour {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
 				animator.SetTrigger ("Attack1Trigger");
+<<<<<<< HEAD
 				//FireSimpleAttack ();
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
 				StartCoroutine (COStunPause (.6f));
 			} else {
 				animator.SetBool ("Moving", true);
@@ -151,6 +156,7 @@ public class MageControl : MonoBehaviour {
 			encounter = false;
 		}
 	}
+<<<<<<< HEAD
 
 	void FireSimpleAttack()
 	{
@@ -177,4 +183,6 @@ public class MageControl : MonoBehaviour {
 				FireSimpleAttack ();
 		}
 	}
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
 }

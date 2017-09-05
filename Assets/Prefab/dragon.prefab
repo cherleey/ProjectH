@@ -838,7 +838,11 @@ GameObject:
   - component: {fileID: 4531576241104256}
   - component: {fileID: 95042076886517168}
   - component: {fileID: 143111222894206090}
+<<<<<<< HEAD
   - component: {fileID: 114412312661363820}
+=======
+  - component: {fileID: 114255933012776482}
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
   m_Layer: 10
   m_Name: dragon
   m_TagString: Untagged
@@ -2905,8 +2909,11 @@ Transform:
   - {fileID: 4888097526148044}
   - {fileID: 4250706178107636}
   - {fileID: 4315699825450998}
+<<<<<<< HEAD
   - {fileID: 4096968964590322}
   - {fileID: 4133125447643230}
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3778,7 +3785,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< HEAD
 --- !u!114 &114412312661363820
+=======
+--- !u!114 &114255933012776482
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3789,17 +3800,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b23a5543cb864b9ee6699bd490767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   BlessPrefab: {fileID: 163286, guid: 50daa816369323b42b56093bb108296f, type: 2}
   auraPrefab: {fileID: 168262, guid: 062893e7007e39441aea009115b6cefa, type: 2}
   meteorPrefab: {fileID: 0}
   anim: {fileID: 95042076886517168}
   blessposition: {fileID: 4096968964590322}
   bosshealth: {fileID: 0}
+=======
+  anim: {fileID: 95042076886517168}
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
   bosssight: 20
   bossattack: 10
   speed: 20
   rot: 20
-  power: 20
 --- !u!137 &137245751041715580
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -4344,8 +4358,13 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
+<<<<<<< HEAD
   m_Radius: 5
   m_SlopeLimit: 0
+=======
+  m_Radius: 4
+  m_SlopeLimit: 45
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001

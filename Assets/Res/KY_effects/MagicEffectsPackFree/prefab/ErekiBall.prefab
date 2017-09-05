@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
-  - component: {fileID: 114497276723799990}
   m_Layer: 0
   m_Name: ErekiBall
   m_TagString: Untagged
@@ -87,6 +86,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
+<<<<<<< HEAD:Assets/Prefab/ErekiBall.prefab
 <<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0.7592713, z: 0, w: 0.6507742}
   m_LocalPosition: {x: 3.9434667, y: 2, z: -3.1176262}
@@ -94,6 +94,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7002862, z: -0, w: 0.7138622}
   m_LocalPosition: {x: -9.908629, y: 2, z: 1.2518073}
 >>>>>>> parent of cf7f871... 아처 추가
+=======
+  m_LocalRotation: {x: -0.4924383, y: -0.5074491, z: 0.5074491, w: 0.4924383}
+  m_LocalPosition: {x: 0.3063888, y: -0.022320747, z: -0.3138218}
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌:Assets/Res/KY_effects/MagicEffectsPackFree/prefab/ErekiBall.prefab
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -9930,7 +9934,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -9982,7 +9986,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -10034,7 +10038,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -10071,6 +10075,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}
   m_IsPrefabParent: 1
+<<<<<<< HEAD:Assets/Prefab/ErekiBall.prefab
 --- !u!114 &114497276723799990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10098,3 +10103,5 @@ SphereCollider:
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 >>>>>>> parent of cf7f871... 아처 추가
+=======
+>>>>>>> parent of 20f3ae3... 마법사 기본 공격, 전사 기본공격 충돌:Assets/Res/KY_effects/MagicEffectsPackFree/prefab/ErekiBall.prefab
