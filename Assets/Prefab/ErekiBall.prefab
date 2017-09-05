@@ -87,8 +87,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0.7592713, z: 0, w: 0.6507742}
   m_LocalPosition: {x: 3.9434667, y: 2, z: -3.1176262}
+=======
+  m_LocalRotation: {x: 0, y: -0.7002862, z: -0, w: 0.7138622}
+  m_LocalPosition: {x: -9.908629, y: 2, z: 1.2518073}
+>>>>>>> parent of cf7f871... 아처 추가
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -10078,3 +10083,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mage: {fileID: 1778212647438454, guid: 4d274400250e4394a97620861882d7a0, type: 2}
+<<<<<<< HEAD
+=======
+--- !u!135 &135643972575504616
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> parent of cf7f871... 아처 추가
