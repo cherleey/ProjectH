@@ -65,8 +65,8 @@ public class CameraMove : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.F1)) {
 			if(eSelected == SelectedCharater.MAGE)
 				comTarget.GetComponent<MageControl> ().SetSelected (false);
-			//else if(eSelected == SelectedCharater.ARCHER)
-			//	comTarget.GetComponent<ArcherControl> ().SetSelected (false);
+			else if(eSelected == SelectedCharater.ARCHER)
+				comTarget.GetComponent<ArcherControl> ().SetSelected (false);
 
 			eSelected = SelectedCharater.WARRIOR;
 		}
@@ -74,8 +74,8 @@ public class CameraMove : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.F2)) {
 			if(eSelected == SelectedCharater.WARRIOR)
 				comTarget.GetComponent<WarriorControl> ().SetSelected (false);
-			//else if(eSelected == SelectedCharater.ARCHER)
-			//	comTarget.GetComponent<ArcherControl> ().SetSelected (false);
+			else if(eSelected == SelectedCharater.ARCHER)
+				comTarget.GetComponent<ArcherControl> ().SetSelected (false);
 
 			eSelected = SelectedCharater.MAGE;
 		}
@@ -112,7 +112,7 @@ public class CameraMove : MonoBehaviour {
 				comTarget = GameObject.Find ("Archer Warrior");
 				bMoving = true;
 
-				//comTarget.GetComponent < ArcherControl> ().SetSelected (true);
+				comTarget.GetComponent < ArcherControl> ().SetSelected (true);
 			}
 			break;
 		}
