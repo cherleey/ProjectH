@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HitByWarrior : MonoBehaviour {
 
+	public GameObject warrior;
+
 	int damage = 5;
 
 	// Use this for initialization
@@ -18,9 +20,9 @@ public class HitByWarrior : MonoBehaviour {
 
 	void OnTriggerExit(Collider collision)
 	{
-		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy") && Camera.main.GetComponent<CameraMove> ().GetTarget ().GetComponent<WarriorControl> ().IsAttacking ()) {
+		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy") &&  warrior.GetComponent<WarriorControl>().IsAttacking()) {
 			collision.gameObject.GetComponent<Boss> ().Hit (damage);
-			Camera.main.GetComponent<CameraMove> ().GetTarget ().GetComponent<WarriorControl> ().SetAttacking (false);
+			warrior.GetComponent<WarriorControl> ().SetAttacking (false);
 		}
 	}
 }

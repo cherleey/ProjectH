@@ -30,6 +30,8 @@ public class Boss : MonoBehaviour {
 	public float rot =20.0f;
 	public float power = 20.0f;
 
+	int hp = 100;
+
 	void Start () 
 	{
 		
@@ -116,4 +118,5 @@ public class Boss : MonoBehaviour {
 		Debug.Log (hp);
 
 	}
+
 }
