@@ -28,6 +28,7 @@ public class WarriorControl : MonoBehaviour {
 		}
 
 		PlayAnim ();
+		PlayEffect ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
 	}
@@ -63,7 +64,7 @@ public class WarriorControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
-			isAttacking = true;
+			//isAttacking = true;
 			StartCoroutine (COStunPause(.6f));
 		}
 	}
@@ -101,7 +102,7 @@ public class WarriorControl : MonoBehaviour {
 	void AIMove()
 	{
 		if(!encounter)
-			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 
 		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
 
@@ -115,7 +116,7 @@ public class WarriorControl : MonoBehaviour {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
 				animator.SetTrigger ("Attack1Trigger");
-				isAttacking = true;
+				//isAttacking = true;
 				StartCoroutine (COStunPause (.6f));
 			} else {
 				animator.SetBool ("Moving", true);
@@ -146,7 +147,7 @@ public class WarriorControl : MonoBehaviour {
 	void OnTiggerExit(Collider collision)
 	{
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
-			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 			encounter = false;
 		}
 	}
@@ -159,5 +160,13 @@ public class WarriorControl : MonoBehaviour {
 	public void SetAttacking(bool _isAttacking)
 	{
 		isAttacking = _isAttacking;
+	}
+		
+	void PlayEffect()
+	{
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Attack1")) {
+			if (animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.4125f)
+				isAttacking = true;
+		}
 	}
 }

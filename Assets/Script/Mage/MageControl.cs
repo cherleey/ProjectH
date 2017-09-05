@@ -22,12 +22,13 @@ public class MageControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!selected) {
+			PlayEffect ();
 			AIMove ();
-
 			return;
 		}
 
 		PlayAnim ();
+		PlayEffect ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
 	}
@@ -63,7 +64,7 @@ public class MageControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
-			FireSimpleAttack ();
+			//FireSimpleAttack ();
 			StartCoroutine (COStunPause(.6f));
 		}
 	}
@@ -101,7 +102,7 @@ public class MageControl : MonoBehaviour {
 	void AIMove()
 	{
 		if(!encounter)
-			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 		
 		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
 
@@ -115,7 +116,7 @@ public class MageControl : MonoBehaviour {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
 				animator.SetTrigger ("Attack1Trigger");
-				FireSimpleAttack ();
+				//FireSimpleAttack ();
 				StartCoroutine (COStunPause (.6f));
 			} else {
 				animator.SetBool ("Moving", true);
@@ -146,7 +147,7 @@ public class MageControl : MonoBehaviour {
 	void OnTiggerExit(Collider collision)
 	{
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
-			targetEnemy = targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
 			encounter = false;
 		}
 	}
@@ -157,9 +158,23 @@ public class MageControl : MonoBehaviour {
 		initPosition.y = 2.0f;
 
 		simpleAtt.transform.position = initPosition;
-		simpleAtt.transform.rotation = transform.rotation;
-		simpleAtt.transform.forward = transform.forward;
+
+		if(selected)
+			simpleAtt.transform.forward = -new Vector3(Camera.main.transform.forward.x, 0.0f, Camera.main.transform.forward.z);
+		else
+			simpleAtt.transform.forward = -transform.forward;
+		
 
 		Instantiate (simpleAtt);
+	}
+
+	void PlayEffect()
+	{
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Attack1")) {
+			if(selected)
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(new Vector3(Camera.main.transform.forward.x, 0.0f, Camera.main.transform.forward.z)), Time.deltaTime * rotationSpeed);
+			if (animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.4125f)
+				FireSimpleAttack ();
+		}
 	}
 }
