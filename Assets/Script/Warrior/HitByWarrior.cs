@@ -7,7 +7,7 @@ public class HitByWarrior : MonoBehaviour {
 	public GameObject warrior;
 
 	int damage = 5;
-
+	int agro = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -23,6 +23,7 @@ public class HitByWarrior : MonoBehaviour {
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy") &&  warrior.GetComponent<WarriorControl>().IsAttacking()) {
 			collision.gameObject.GetComponent<Boss> ().Hit (damage);
 			warrior.GetComponent<WarriorControl> ().SetAttacking (false);
+			collision.gameObject.GetComponent<Boss> ().Agro (agro);
 		}
 	}
 }

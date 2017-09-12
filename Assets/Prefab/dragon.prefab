@@ -837,9 +837,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4531576241104256}
   - component: {fileID: 95042076886517168}
-  - component: {fileID: 143111222894206090}
   - component: {fileID: 114412312661363820}
-  - component: {fileID: 135030230822434246}
+  - component: {fileID: 135555506793337228}
   m_Layer: 10
   m_Name: dragon
   m_TagString: Untagged
@@ -947,6 +946,23 @@ GameObject:
   - component: {fileID: 4931948367868328}
   m_Layer: 10
   m_Name: upper_arm_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1425146114159514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4422139541483390}
+  - component: {fileID: 135750214054324066}
+  - component: {fileID: 114747870967268276}
+  m_Layer: 0
+  m_Name: sightarea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2162,7 +2178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408008287083650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.33, z: 0}
+  m_LocalPosition: {x: 0, y: 3.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4531576241104256}
@@ -2684,6 +2700,19 @@ Transform:
   m_Father: {fileID: 4931948367868328}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4422139541483390
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425146114159514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4531576241104256}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4429190191017932
 Transform:
   m_ObjectHideFlags: 1
@@ -2908,6 +2937,7 @@ Transform:
   - {fileID: 4250706178107636}
   - {fileID: 4315699825450998}
   - {fileID: 4096968964590322}
+  - {fileID: 4422139541483390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3790,19 +3820,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b23a5543cb864b9ee6699bd490767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warriortarget: {fileID: 0}
+  magetarget: {fileID: 0}
+  archertarget: {fileID: 0}
   BlessPrefab: {fileID: 163286, guid: 50daa816369323b42b56093bb108296f, type: 2}
   auraPrefab: {fileID: 1985664757686340, guid: 7caf9db2bccbfc44881c33a11a574b06, type: 2}
   meteorPrefab: {fileID: 1542196908215044, guid: dffaebe7bf4b03542a17e83053cc2398,
     type: 2}
   anim: {fileID: 95042076886517168}
   blessposition: {fileID: 4096968964590322}
+  auraposition: {fileID: 4133125447643230}
   bosshealth: {fileID: 0}
   bosssight: 20
-  bossattack: 10
-  speed: 5
+  bossattack: 6
+  speed: 1
   rot: 20
   power: 20
---- !u!135 &135030230822434246
+  hp: 1000
+  playersize: 3
+  maxApprochDistance: 5
+--- !u!114 &114747870967268276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425146114159514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4c813117714bf47952a34f14bc27a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &135555506793337228
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3810,6 +3858,18 @@ SphereCollider:
   m_GameObject: {fileID: 1377613895816600}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!135 &135750214054324066
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425146114159514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 20
@@ -4347,20 +4407,3 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.010002907, y: -0.008471444, z: 0.01758934}
     m_Extent: {x: 0.049819436, y: 0.04565145, z: 0.060249045}
   m_DirtyAABB: 0
---- !u!143 &143111222894206090
-CharacterController:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1377613895816600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 5
-  m_SlopeLimit: 0
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 5, z: 0}

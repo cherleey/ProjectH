@@ -6,7 +6,7 @@ public class SimpleAttack : MonoBehaviour {
 
 	float speed = 10.0f;
 	int damage = 5;
-
+	int agro = 1;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,11 +19,14 @@ public class SimpleAttack : MonoBehaviour {
 		Destroy (gameObject, 3.0f);
 	}
 
-	void OnTriggerExit(Collider collision)
+	void OnTriggerEnter(Collider collision)
 	{
+
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+			Debug.Log ("mageHit");
 			collision.gameObject.GetComponent<Boss> ().Hit (damage);
 			Destroy (gameObject);
+			collision.gameObject.GetComponent<Boss> ().Agro (agro);
 		}
 	}
 }

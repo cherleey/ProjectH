@@ -24,7 +24,7 @@ GameObject:
   m_Name: Mesh-Mage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1027354660505588
@@ -39,7 +39,7 @@ GameObject:
   m_Name: B_L_Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1082535100843936
@@ -54,7 +54,7 @@ GameObject:
   m_Name: B_R_Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1085552530221158
@@ -69,7 +69,7 @@ GameObject:
   m_Name: B_R_Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1086718640068504
@@ -84,7 +84,7 @@ GameObject:
   m_Name: B_R_Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1097495633072606
@@ -99,7 +99,7 @@ GameObject:
   m_Name: B_L_Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1134034036255284
@@ -114,7 +114,7 @@ GameObject:
   m_Name: B_R_Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1143199923033308
@@ -129,7 +129,7 @@ GameObject:
   m_Name: B_R_Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1157858159267158
@@ -145,7 +145,7 @@ GameObject:
   m_Name: Mesh-Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1181070987884272
@@ -160,7 +160,7 @@ GameObject:
   m_Name: B_L_Finger41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1184058733372686
@@ -175,7 +175,7 @@ GameObject:
   m_Name: B_R_Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1212996637877626
@@ -190,7 +190,7 @@ GameObject:
   m_Name: B_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1218824790530368
@@ -205,7 +205,7 @@ GameObject:
   m_Name: B_R_Finger41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1245823564435872
@@ -220,7 +220,7 @@ GameObject:
   m_Name: B_L_Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1280520997160370
@@ -235,7 +235,7 @@ GameObject:
   m_Name: B_L_Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1314730658805538
@@ -250,7 +250,7 @@ GameObject:
   m_Name: B_R_Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1317183411747116
@@ -265,7 +265,7 @@ GameObject:
   m_Name: B_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1347789701546558
@@ -280,7 +280,7 @@ GameObject:
   m_Name: B_L_Finger4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1371916932370686
@@ -295,7 +295,7 @@ GameObject:
   m_Name: B_L_UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1387093831122584
@@ -310,7 +310,7 @@ GameObject:
   m_Name: Motion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1402441010578024
@@ -325,7 +325,7 @@ GameObject:
   m_Name: B_L_Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1404088360651142
@@ -340,7 +340,7 @@ GameObject:
   m_Name: B_R_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1407518397045716
@@ -355,7 +355,7 @@ GameObject:
   m_Name: B_L_Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1415067408570490
@@ -370,7 +370,7 @@ GameObject:
   m_Name: B_R_Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1420220676429560
@@ -385,7 +385,7 @@ GameObject:
   m_Name: B_R_Finger42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1426426212911126
@@ -400,7 +400,7 @@ GameObject:
   m_Name: B_R_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1427923567283522
@@ -415,7 +415,7 @@ GameObject:
   m_Name: B_L_Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1461404311210308
@@ -430,7 +430,7 @@ GameObject:
   m_Name: B_R_Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1517425681528540
@@ -445,7 +445,7 @@ GameObject:
   m_Name: B_R_UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1525834286270894
@@ -460,7 +460,7 @@ GameObject:
   m_Name: B_R_Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1569806971061710
@@ -475,7 +475,7 @@ GameObject:
   m_Name: B_L_Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1582859665032536
@@ -490,7 +490,7 @@ GameObject:
   m_Name: B_L_Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1584822215221262
@@ -505,7 +505,7 @@ GameObject:
   m_Name: B_L_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1589642067101128
@@ -520,7 +520,7 @@ GameObject:
   m_Name: B_L_Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1644070249153662
@@ -535,7 +535,7 @@ GameObject:
   m_Name: B_L_Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1649054083343902
@@ -550,7 +550,7 @@ GameObject:
   m_Name: B_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1658407271901130
@@ -565,7 +565,7 @@ GameObject:
   m_Name: B_L_Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1674318986595854
@@ -580,7 +580,7 @@ GameObject:
   m_Name: B_L_Finger42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1694175715980948
@@ -595,7 +595,7 @@ GameObject:
   m_Name: B_Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1725732325753376
@@ -610,7 +610,7 @@ GameObject:
   m_Name: B_L_Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1736012861346302
@@ -625,7 +625,7 @@ GameObject:
   m_Name: B_L_Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1778212647438454
@@ -637,15 +637,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4033572939237380}
   - component: {fileID: 95721041353083760}
-  - component: {fileID: 54648515782693042}
   - component: {fileID: 143895785636571718}
   - component: {fileID: 135379298176182118}
   - component: {fileID: 114848841062569804}
+  - component: {fileID: 54204506252006900}
   m_Layer: 8
   m_Name: Mage Warrior
-  m_TagString: Player
+  m_TagString: mage
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1786182917534976
@@ -660,7 +660,7 @@ GameObject:
   m_Name: B_R_Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1810856072716050
@@ -675,7 +675,7 @@ GameObject:
   m_Name: B_R_Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1816065216107514
@@ -690,7 +690,7 @@ GameObject:
   m_Name: B_R_Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1882082401284398
@@ -705,7 +705,7 @@ GameObject:
   m_Name: B_R_Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1892681823294088
@@ -720,7 +720,7 @@ GameObject:
   m_Name: B_R_Finger4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1898072016521166
@@ -735,7 +735,7 @@ GameObject:
   m_Name: B_L_Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1908736169386998
@@ -750,7 +750,7 @@ GameObject:
   m_Name: B_L_Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1936015339657332
@@ -765,7 +765,7 @@ GameObject:
   m_Name: B_L_Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1957933632932058
@@ -780,7 +780,7 @@ GameObject:
   m_Name: B_R_Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1977930253798026
@@ -795,7 +795,7 @@ GameObject:
   m_Name: B_R_Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1981070082265398
@@ -810,7 +810,7 @@ GameObject:
   m_Name: B_L_Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1990893906308222
@@ -825,7 +825,7 @@ GameObject:
   m_Name: B_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1994068857283418
@@ -840,7 +840,7 @@ GameObject:
   m_Name: B_R_Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4010256388611314
@@ -878,7 +878,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778212647438454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.4, y: 0, z: 8.56}
+  m_LocalPosition: {x: -14.796, y: 0, z: -5.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4348169175158410}
@@ -1619,7 +1619,7 @@ Transform:
   m_Father: {fileID: 4360682107633672}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54648515782693042
+--- !u!54 &54204506252006900
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1663,6 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95721041353083760}
+  simpleAtt: {fileID: 100002, guid: 391ec6f1311384e75b4888fd6fc26b7e, type: 2}
 --- !u!135 &135379298176182118
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1828,7 +1829,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 3
   m_Radius: 1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
