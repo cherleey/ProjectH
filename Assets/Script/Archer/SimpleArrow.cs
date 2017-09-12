@@ -6,7 +6,7 @@ public class SimpleArrow : MonoBehaviour {
 
 	float speed = 10.0f;
 	int damage = 5;
-	int agro = 2;
+	 int agro = 2;
 	// Use this for initialization
 	void Start () {
 		transform.eulerAngles = new Vector3 (90.0f, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -23,10 +23,9 @@ public class SimpleArrow : MonoBehaviour {
 	{
 		
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
-			Debug.Log ("archer Hit");
 			collision.gameObject.GetComponent<Boss> ().Hit (damage);
 			Destroy (gameObject);
-			collision.gameObject.GetComponent<Boss> ().Agro (agro);
+			collision.gameObject.GetComponent<BossAgroe> ().Agro (agro);
 		}
 	}
 }

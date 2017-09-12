@@ -23,7 +23,7 @@ public class HitByWarrior : MonoBehaviour {
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy") &&  warrior.GetComponent<WarriorControl>().IsAttacking()) {
 			collision.gameObject.GetComponent<Boss> ().Hit (damage);
 			warrior.GetComponent<WarriorControl> ().SetAttacking (false);
-			collision.gameObject.GetComponent<Boss> ().Agro (agro);
+			collision.gameObject.GetComponent<BossAgroe> ().Agro (agro);
 		}
 	}
 }

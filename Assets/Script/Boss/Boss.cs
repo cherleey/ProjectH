@@ -34,50 +34,18 @@ public class Boss : MonoBehaviour {
 	public float speed = 20.0f;
 	public float rot =20.0f;
 	public float power = 20.0f;
-	public static int i = -1;//첫 어그로 초기값
+
 	public int hp = 1000;
-
-	public static int[] agropoint;
-	public int playersize =3;
-
-	public float maxApprochDistance = 0.5f;
 
 	void Start () 
 	{
-		
 		anim = GetComponent<Animator> ();
 		warriortarget = GameObject.Find ("2Handed Warrior").transform;
 		magetarget = GameObject.Find ("Mage Warrior").transform;
 		archertarget = GameObject.Find ("Archer Warrior").transform;
 		anim.Play ("axe|idle", -1, 0f);
-
-		agropoint = new int[playersize];
-
 	}
 
-	private int GetAggroed(int[] aggroPoint)
-	{
-		int maxIndex = 0;
-		for (int b = 0; b < playersize-1; b++) {
-			if (aggroPoint [maxIndex] < aggroPoint [b+1])
-				maxIndex = b+1;
-			
-		}
-		return maxIndex;
-	}
-
-	public void Agro(int agro)
-	{
-		if (agro == 0){
-			agropoint[agro]+=1;
-		}
-		if (agro == 1){
-			agropoint[agro]+=2;
-		}
-		if (agro == 2){
-			agropoint[agro]+=3;
-		}
-	}
 	public void Hit(int damage)
 	{
 		hp -= damage;
@@ -92,12 +60,8 @@ public class Boss : MonoBehaviour {
 		}
 	}
 
-
-
 	void Update ()
 	{
-		
-
 
 		bosshealth.value = Mathf.MoveTowards (bosshealth.value, hp, 1.0f);
 
@@ -106,27 +70,22 @@ public class Boss : MonoBehaviour {
 		float magedistance = (magetarget.position - transform.position).magnitude;
 		float archerdistance = (archertarget.position - transform.position).magnitude;
 
-		int maxIndex = GetAggroed (agropoint);
-		//Debug.Log (maxIndex);
-		if (maxIndex==0) 
+		if (BossAgroe.maxIndex==0) 
 		{
 			distance = warriordistance;
 			target = GameObject.Find ("2Handed Warrior").transform;
 			Debug.Log ("Highest agropoint = 2Handed");
-		} else if (maxIndex==1)
+		} else if (BossAgroe.maxIndex==1)
 		{
 			distance = magedistance;
 			target = GameObject.Find ("Mage Warrior").transform;
 			Debug.Log ("Highest agropoint = Mage");
-		} else if (maxIndex==2) 
+		} else if (BossAgroe.maxIndex==2) 
 		{
 			distance = archerdistance;
 			target = GameObject.Find ("Archer Warrior").transform;
 			Debug.Log ("Highest agropoint = Archer");
 		}
-		
-
-
 
 		if (distance < bosssight && distance > bossattack) {			
 			if (anim.GetBool ("walk") == false) {
@@ -164,8 +123,7 @@ public class Boss : MonoBehaviour {
 			GameObject meteor = Instantiate(meteorPrefab);
 			meteor.transform.position = auraposition.position;
 		}
-
-	
+			
 		switch (boss) 
 		{
 		case BOSSSTATE.walk:
@@ -193,8 +151,6 @@ public class Boss : MonoBehaviour {
 		}
 		if (boss == BOSSSTATE.dead)
 			return;
-		
-
 	}
 	void IDLE()
 	{

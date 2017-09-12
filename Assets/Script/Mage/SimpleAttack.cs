@@ -23,10 +23,9 @@ public class SimpleAttack : MonoBehaviour {
 	{
 
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
-			Debug.Log ("mageHit");
 			collision.gameObject.GetComponent<Boss> ().Hit (damage);
 			Destroy (gameObject);
-			collision.gameObject.GetComponent<Boss> ().Agro (agro);
+			collision.gameObject.GetComponent<BossAgroe> ().Agro (agro);
 		}
 	}
 }
