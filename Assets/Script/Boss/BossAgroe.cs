@@ -8,6 +8,15 @@ public class BossAgroe : MonoBehaviour {
 	public static int playersize =3;
 	public static int maxIndex;
 
+	public static float warriordistance;
+	public static float magedistance;
+	public static float archerdistance;
+
+	public Transform warriortarget;
+	public Transform magetarget;
+	public Transform archertarget;
+	public static Transform target;
+
 	public static int GetAggroed(int[] aggroPoint)
 	{
 		int maxIndex = 0;
@@ -34,12 +43,20 @@ public class BossAgroe : MonoBehaviour {
 
 	void Start () {
 		agropoint = new int[playersize];
+		warriortarget = GameObject.Find ("2Handed Warrior").transform;
+		magetarget = GameObject.Find ("Mage Warrior").transform;
+		archertarget = GameObject.Find ("Archer Warrior").transform;
 	
 	}
 	
 	void Update () {
 		maxIndex = GetAggroed (agropoint);
+
+		warriordistance =(warriortarget.position - transform.position).magnitude;
+		magedistance = (magetarget.position - transform.position).magnitude;
+		archerdistance = (archertarget.position - transform.position).magnitude;
 	}
+		
 }
 
 

@@ -12,6 +12,7 @@ public class auramove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		transform.position = auraposition.position;
 		Destroy (gameObject, 4.0f);
 	}
