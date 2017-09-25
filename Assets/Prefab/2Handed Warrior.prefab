@@ -1687,7 +1687,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8613014, y: 0.20038307, z: 2.750447}
+  m_Size: {x: 2, y: 2, z: 4}
   m_Center: {x: -0.40521404, y: -0.0023581912, z: 0.9962792}
 --- !u!95 &95882637123697094
 Animator:
@@ -1717,6 +1717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9b30f75472c54479aae26bdf276129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warrior: {fileID: 1065352204716966}
 --- !u!114 &114571148623134550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1729,6 +1730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95882637123697094}
+  bashEffect: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 2}
+  shieldEffect: {fileID: 100000, guid: b047432f796883c43a24053be300f634, type: 2}
 --- !u!135 &135154262088362202
 SphereCollider:
   m_ObjectHideFlags: 1

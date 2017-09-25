@@ -6,6 +6,8 @@ public class MageControl : MonoBehaviour {
 
 	public Animator animator;
 	public GameObject simpleAtt;
+	public GameObject Formation1;
+	public GameObject Formation2;
 
 	GameObject targetEnemy;
 	Vector3 inputVec;
@@ -14,9 +16,12 @@ public class MageControl : MonoBehaviour {
 	float distanceToTarget = 0.0f;
 	bool selected = false;
 	bool encounter = false;
+	GameObject targetFormation;
+	bool changingFormation = false;
 
 	// Use this for initialization
 	void Start () {
+		targetFormation = Formation1;
 	}
 
 	// Update is called once per frame
@@ -24,6 +29,7 @@ public class MageControl : MonoBehaviour {
 		if (!selected) {
 			PlayEffect ();
 			AIMove ();
+			ChangeFormation ();
 			return;
 		}
 
@@ -31,6 +37,7 @@ public class MageControl : MonoBehaviour {
 		PlayEffect ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
+		ChangeFormation ();
 	}
 
 	public IEnumerator COStunPause(float pauseTime)
@@ -101,17 +108,24 @@ public class MageControl : MonoBehaviour {
 
 	void AIMove()
 	{
-		if (!encounter)
-			targetEnemy = Camera.main.GetComponent<CameraMove> ().GetTarget ();
-		
-		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
+		if (!encounter || changingFormation) {
+			//targetEnemy = Camera.main.GetComponent<CameraMove> ().GetTarget ();
+
+			if (Camera.main.GetComponent<CameraMove> ().GetTarget ().name.Contains ("2Handed"))
+				targetEnemy = targetFormation.transform.FindChild("Location 1").gameObject;	
+			else
+				targetEnemy = targetFormation.transform.FindChild("Location 2").gameObject;
+		}
+
+		Vector3 targetLocation = new Vector3 (targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
+		distanceToTarget = Vector3.Distance (transform.position, targetLocation);
 
 		Vector3 dir = targetEnemy.transform.position - transform.position;
 		dir.y = 0.0f;
 
 		transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * rotationSpeed);
 
-		if (targetEnemy.layer == LayerMask.NameToLayer ("Enemy")) {
+		if (targetEnemy.layer == LayerMask.NameToLayer ("Enemy") && !changingFormation) {
 			if (distanceToTarget <= 10.0f) {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
@@ -122,12 +136,13 @@ public class MageControl : MonoBehaviour {
 				animator.SetBool ("Moving", true);
 				animator.SetBool ("Running", true);
 			}
-		} else if (distanceToTarget >= 5.0f) {
+		} else if (distanceToTarget >= 1.0f) {
 			animator.SetBool ("Moving", true);
 			animator.SetBool ("Running", true);
 		} else {
 			animator.SetBool ("Moving", false);
 			animator.SetBool ("Running", false);
+			changingFormation = false;
 		}
 	}
 
@@ -177,6 +192,19 @@ public class MageControl : MonoBehaviour {
 				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(new Vector3(Camera.main.transform.forward.x, 0.0f, Camera.main.transform.forward.z)), Time.deltaTime * rotationSpeed);
 			if (animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.4125f)
 				FireSimpleAttack ();
+		}
+	}
+
+	void ChangeFormation()
+	{
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			targetFormation = Formation1;
+			changingFormation = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			targetFormation = Formation2;
+			changingFormation = true;
 		}
 	}
 }

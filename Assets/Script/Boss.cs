@@ -48,6 +48,8 @@ public class Boss : MonoBehaviour {
 
 
 		IDLE ();
+
+		/*
 		if(Input.GetKeyDown("1"))
 			boss=BOSSSTATE.dead;
 		if (Input.GetKeyDown ("2")) 
@@ -60,6 +62,7 @@ public class Boss : MonoBehaviour {
 			Destroy (obj, 3f);
 			boss = BOSSSTATE.attack;
 		}
+		*/
 		
 		switch (boss) 
 		{

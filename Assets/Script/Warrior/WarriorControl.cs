@@ -5,25 +5,36 @@ using UnityEngine;
 public class WarriorControl : MonoBehaviour {
 
 	public Animator animator;
+	public GameObject bashEffect;
+	public GameObject shieldEffect;
+	public GameObject Formation1;
+	public GameObject Formation2;
 
 	GameObject targetEnemy;
 	Vector3 inputVec;
 	Vector3 targetDirection;
 	float rotationSpeed = 30;
 	float distanceToTarget = 0.0f;
+	float shieldDuration = 2.0f;
+	float timeForShield = 0.0f;
 	bool selected = true;
 	bool encounter = false;
 	bool isAttacking = false;
+	bool isBashing = false;
+	bool isShielding = false;
+	GameObject targetFormation;
+	bool changingFormation = false;
 
 	// Use this for initialization
 	void Start () {
+		targetFormation = Formation1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!selected) {
 			AIMove ();
-
+			ChangeFormation ();
 			return;
 		}
 
@@ -31,6 +42,7 @@ public class WarriorControl : MonoBehaviour {
 		PlayEffect ();
 		GetCameraRelativeMovement ();
 		RotateTowardMovementDirection ();
+		ChangeFormation ();
 	}
 
 	public IEnumerator COStunPause(float pauseTime)
@@ -64,8 +76,16 @@ public class WarriorControl : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetTrigger("Attack1Trigger");
-			//isAttacking = true;
-			StartCoroutine (COStunPause(.6f));
+			//StartCoroutine (COStunPause (.6f));
+		}
+
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			animator.SetTrigger("Attack1Trigger");
+			isBashing = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.E) && !isShielding) {
+			isShielding = true;
 		}
 	}
 
@@ -101,17 +121,18 @@ public class WarriorControl : MonoBehaviour {
 
 	void AIMove()
 	{
-		if(!encounter)
-			targetEnemy = Camera.main.GetComponent<CameraMove>().GetTarget();
+		if (!encounter || changingFormation)
+			targetEnemy = targetFormation.transform.FindChild("Location 1").gameObject;
 
-		distanceToTarget = Vector3.Distance (transform.position, targetEnemy.transform.position);
+		Vector3 targetLocation = new Vector3 (targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
+		distanceToTarget = Vector3.Distance (transform.position, targetLocation);
 
 		Vector3 dir = targetEnemy.transform.position - transform.position;
 		dir.y = 0.0f;
 
 		transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * rotationSpeed);
 
-		if (targetEnemy.layer == LayerMask.NameToLayer ("Enemy")) {
+		if (targetEnemy.layer == LayerMask.NameToLayer ("Enemy") && !changingFormation) {
 			if (distanceToTarget <= 10.0f) {
 				animator.SetBool ("Moving", false);
 				animator.SetBool ("Running", false);
@@ -122,12 +143,13 @@ public class WarriorControl : MonoBehaviour {
 				animator.SetBool ("Moving", true);
 				animator.SetBool ("Running", true);
 			}
-		} else if (distanceToTarget >= 5.0f) {
+		} else if (distanceToTarget >= 1.0f) {
 			animator.SetBool ("Moving", true);
 			animator.SetBool ("Running", true);
 		} else {
 			animator.SetBool ("Moving", false);
 			animator.SetBool ("Running", false);
+			changingFormation = false;
 		}
 	}
 
@@ -167,6 +189,62 @@ public class WarriorControl : MonoBehaviour {
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Attack1")) {
 			if (animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.4125f)
 				isAttacking = true;
+
+			if (isBashing && animator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 0.4f && animator.GetCurrentAnimatorStateInfo (0).normalizedTime <= 0.4125f) {
+				Bash ();
+				isBashing = false;
+			}
+				
 		}
+
+
+		timeForShield += Time.deltaTime;
+
+		Shield ();
+
+		if (timeForShield >= shieldDuration) {
+			timeForShield = 0.0f;
+			isShielding = false;
+		}
+	}
+
+	void Bash()
+	{
+		Vector3 initPosition = transform.position;
+		initPosition.y = 2.0f;
+		initPosition += transform.forward * 3.0f;
+
+		bashEffect.transform.position = initPosition;
+
+		Instantiate (bashEffect);
+		bashEffect.GetComponent<DestroyObject> ().SetTime (0.5f);
+	}
+
+	void Shield()
+	{
+		if(isShielding)
+		{
+			shieldEffect.SetActive(true);
+			//Debug.Log (isShielding);
+		}
+		else
+		{
+			shieldEffect.SetActive(false);
+			//Debug.Log (isShielding);
+		}
+	}
+
+	void ChangeFormation()
+	{
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			targetFormation = Formation1;
+			changingFormation = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			targetFormation = Formation2;
+			changingFormation = true;
+		}
+			
 	}
 }
